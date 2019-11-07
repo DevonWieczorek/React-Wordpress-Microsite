@@ -1,3 +1,4 @@
+import HookStore from '../Hooks';
 import { META, RESET_META } from '../actions/types';
 import { mergeObjects } from '../utils/objects';
 
@@ -17,14 +18,30 @@ const INITIAL_STATE = {
     'ogURL': n.REACT_APP_DEFAULT_URL || window.location.href
 }
 
+const applyMetaFilters = (meta) => {
+    meta.title = HookStore.applyFilters('meta_title', meta.title);
+    meta.ogTitle = HookStore.applyFilters('meta_og_title', meta.ogTitle);
+    meta.description = HookStore.applyFilters('meta_description', meta.description);
+    meta.ogDescription = HookStore.applyFilters('meta_og_description', meta.ogDescription);
+    meta.keywords = HookStore.applyFilters('meta_keywords', meta.keywords);
+    meta.subject = HookStore.applyFilters('meta_subject', meta.subject);
+    meta.robots = HookStore.applyFilters('meta_robots', meta.robots);
+    meta.ogImage = HookStore.applyFilters('meta_og_image', meta.ogImage);
+    meta.ogSiteName = HookStore.applyFilters('meta_og_site_name', meta.ogSiteName);
+    meta.ogType = HookStore.applyFilters('meta_og_type', meta.ogType);
+    meta.ogURL = HookStore.applyFilters('meta_og_url', meta.ogURL);
+}
+
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case META:
             let metaData = mergeObjects(INITIAL_STATE, action.payload);
+            metaData = applyMetaFilters(metaData);
             return { ...state, ...metaData }
 
         case RESET_META:
-            return { ...state, ...INITIAL_STATE }
+            let meta = applyMetaFilters(INITIAL_STATE);
+            return { ...state, ...meta }
 
         default:
             return state;

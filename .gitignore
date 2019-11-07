@@ -9,12 +9,13 @@
 /coverage
 
 # production
-# /build
+/build
 
 # misc
 .DS_Store
 .env.local
 .env.development.local
+.env.staging.local
 .env.test.local
 .env.production.local
 
@@ -22,37 +23,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# git-flow is looking outside of the root of the project
-../*
-Alt Prize Wheel/
-Canvas Game - Pigs Fly/
-Chrome Extensions/
-Eddie/
-GitHub Projects/
-HTML Preprocessor Idea.rtf
-Haiku/
-Horoscopes/
-Ionic Projects/
-Local Storage/
-PWA App/
-Phone Gap Projects/
-Plugins/
-Pop/
-Python/
-React/ReactNativeWeatherApp/
-React/albums/
-React/ashley/
-React/auth/
-React/bitbucket-caleb/
-React/clean-ui/
-React/lm-builder/
-React/make-better-money/src/.gitignore
-React/manager/
-React/techstack/
-What to Do/
-crossxml/
-lazyLoad/
-loadbar/
-messages.xml
-scratch-off/
-swipe/
+# Ignore plugins for this shell project
+/src/plugins/*
+!/src/plugins/index.js
