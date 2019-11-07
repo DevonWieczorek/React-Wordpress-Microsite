@@ -43,7 +43,7 @@ class Post extends Component{
             this.setState({...this.state,
                 id: api.activePost.id,
                 title: api.activePost.title.rendered,
-                author: api.activePost.metadata.display_aname[0],
+                author: api.activePost.author_name,
                 date: cleanDate(api.activePost.modified),
                 content: content
             }, () => {this.updateMeta()})

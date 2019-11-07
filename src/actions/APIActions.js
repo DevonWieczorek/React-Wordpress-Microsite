@@ -5,7 +5,6 @@ const n = process.env;
 export const getTags = () => {
     return dispatch => {
         let _endpoint = `${n.REACT_APP_DEFAULT_ENDPOINT}/tags?include=${n.REACT_APP_DEFAULT_TAG_ID}`;
-        console.log(`Calling ${_endpoint} for TAGS...`);
 
         fetch(_endpoint, {dataType: 'jsonp'})
             .then(res => res.json())
@@ -21,7 +20,6 @@ export const getTags = () => {
 export const getCategories = () => {
     return dispatch => {
         let _endpoint = `${n.REACT_APP_DEFAULT_ENDPOINT}/categories?include=${n.REACT_APP_DEFAULT_CATEGORY_IDS}`;
-        console.log(`Calling ${_endpoint} for CATEGORIES...`);
 
         fetch(_endpoint, {dataType: 'jsonp'})
             .then(res => res.json())
@@ -39,7 +37,6 @@ export const getPosts = (category, paramString) => {
         category = category || n.REACT_APP_DEFAULT_CATEGORY_IDS;
         let _endpoint = `${n.REACT_APP_DEFAULT_POST_ENDPOINT}&categories=${category}`;
         if(paramString) _endpoint += paramString;
-        console.log(`Calling ${_endpoint} for POSTS...`);
 
         fetch(_endpoint, {dataType: 'jsonp'})
             .then(res => res.json())
@@ -55,7 +52,6 @@ export const getPosts = (category, paramString) => {
 export const getPostBySlug = (slug) => {
     return dispatch => {
         let _endpoint = `${n.REACT_APP_DEFAULT_POST_ENDPOINT}&slug=${slug}`;
-        console.log(`Calling ${_endpoint} for SINGLE POST...`);
 
         fetch(_endpoint, {dataType: 'jsonp'})
             .then(res => res.json())
