@@ -13,6 +13,12 @@ This project uses a PluginStore component that utilizes the [Wordpress Hooks Pac
 
 ### Filters
 
+#### Request Filters
+- `get_tags`
+- `get_categories`
+- `get_posts`
+- `get_single_post`
+
 #### Data Filters
 - `got_tags`
 - `got_categories`

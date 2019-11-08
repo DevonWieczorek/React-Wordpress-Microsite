@@ -1,3 +1,4 @@
+import HookStore from '../Hooks';
 import {UPDATE_TAGS, UPDATE_CATEGORIES, FETCH_POSTS, SINGLE_POST} from "./types";
 
 const n = process.env;
@@ -5,6 +6,7 @@ const n = process.env;
 export const getTags = () => {
     return dispatch => {
         let _endpoint = `${n.REACT_APP_DEFAULT_ENDPOINT}/tags?include=${n.REACT_APP_DEFAULT_TAG_ID}`;
+        _endpoint = HookStore.applyFilters('get_tags', _endpoint);
 
         fetch(_endpoint, {dataType: 'jsonp'})
             .then(res => res.json())
@@ -20,6 +22,7 @@ export const getTags = () => {
 export const getCategories = () => {
     return dispatch => {
         let _endpoint = `${n.REACT_APP_DEFAULT_ENDPOINT}/categories?include=${n.REACT_APP_DEFAULT_CATEGORY_IDS}`;
+        _endpoint = HookStore.applyFilters('get_categories', _endpoint);
 
         fetch(_endpoint, {dataType: 'jsonp'})
             .then(res => res.json())
@@ -38,6 +41,8 @@ export const getPosts = (category, paramString) => {
         let _endpoint = `${n.REACT_APP_DEFAULT_POST_ENDPOINT}&categories=${category}`;
         if(paramString) _endpoint += paramString;
 
+        _endpoint = HookStore.applyFilters('get_posts', _endpoint);
+
         fetch(_endpoint, {dataType: 'jsonp'})
             .then(res => res.json())
             .then(res => {
@@ -52,6 +57,7 @@ export const getPosts = (category, paramString) => {
 export const getPostBySlug = (slug) => {
     return dispatch => {
         let _endpoint = `${n.REACT_APP_DEFAULT_POST_ENDPOINT}&slug=${slug}`;
+        _endpoint = HookStore.applyFilters('get_single_post', _endpoint);
 
         fetch(_endpoint, {dataType: 'jsonp'})
             .then(res => res.json())
