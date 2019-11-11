@@ -101,7 +101,7 @@ Because this project uses the [Wordpress Hooks Package](https://www.ibenic.com/u
 *Please note that although we suggest prefixing your main plugin component with an underscore, the Wordpress Hooks Package does not accept the leading underscore in your namespace. Simply use your main plugin component name without the leading underscore.*
 
 #### State and Props
-Each plugin that is connected to the `PluginStore` will automatically receive all of your app's state and props. App props are drilled into each plugin component, the global state is mapped to their props, and all of the dispatch actions are mapped to their props as well. It is highly suggesting that you take a look at the `PluginStore` source code to get a better idea for how it works.
+Each plugin that is connected to the `PluginStore` will automatically receive all of your app's state and props. App props are drilled into each plugin component, the global state is mapped to their props, and all of the dispatch actions are mapped to their props as well. It is highly suggested that you take a look at the `PluginStore` source code to get a better idea for how it works.
 
 
 
