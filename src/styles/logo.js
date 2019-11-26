@@ -16,12 +16,13 @@ export const logoStyles = makeStyles(theme => ({
         maxHeight: '100%',
         [theme.breakpoints.up('sm')]: {
             paddingTop: '5px',
-            paddingLeft: '12px'
+            paddingLeft: '20px'
         },
         [theme.breakpoints.up('md')]: {
             paddingLeft: '20px'
         },
         [theme.breakpoints.up('lg')]: {
+            paddingTop: 0,
             paddingLeft: '35px'
         },
         [theme.breakpoints.up('xl')]: {

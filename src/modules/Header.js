@@ -28,20 +28,16 @@ class Header extends Component{
             <ErrorBoundary errorContent={null}>
                 <AppBar position="fixed">
                     <Grid container spacing={3}>
-                        <Grid item xs={9} sm={5} md={3} lg={5} xl={6}><Logo /></Grid>
-
-                        <Hidden mdDown className="spacer">
-                            <Hidden xlUp><Grid item md={5} lg={1} xl={5}></Grid></Hidden>
-                        </Hidden>
+                        <Grid item xs={9} sm={4} md={3} lg={5} xl={6}><Logo /></Grid>
 
                         <Hidden mdDown>
-                            <Grid item xs={12} md={4} lg={5} xl={4}>
+                            <Grid item md={4} lg={6} xl={4}>
                                 <Nav />
                             </Grid>
                         </Hidden>
 
                         <Hidden mdUp>
-                            <Grid item xs={3} sm={7}>
+                            <Grid item xs={3} sm={8}>
                                 <Box className={classes.hamburgerHolder} p={1}>
                                     <Button className={classes.hamburgerHolder} onClick={this.toggleDrawer()}>
                                         <MenuIcon className={classes.hamburger} />
