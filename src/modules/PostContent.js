@@ -11,7 +11,7 @@ const PostContent = (props) => {
 
     return(
         <ErrorBoundary errorContent={<NotFound />}>
-            <Grid item xs={12} md={9} key={`g-${props.postID}`}>
+            <Grid item xs={12} lg={9} key={`g-${props.postID}`}>
                 {props.content ?
                     <Box component="div" className={`card, ${classes.root}`} id={`post-${props.postID}`}>
                         <DisclosureTooltip/>

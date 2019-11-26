@@ -12,7 +12,7 @@ class Siderail extends Component{
         for(let i = 0; i < api.posts.length; i++){
             let p = api.posts[i];
             _posts.push(
-                <Grid item xs={12} key={p.id}>
+                <Grid item xs={12} sm={6} md={3} lg={12} key={p.id}>
                     <PostCard
                         id={p.id}
                         img={p.featured_image}
@@ -38,9 +38,9 @@ class Siderail extends Component{
     render(){
         return(
             <ErrorBoundary errorContent={null}>
-                <Grid item xs={12} md={3} key="siderail" id="siderail">
+                <Grid item xs={12} lg={3} key="siderail" id="siderail">
                     <h3>Recommended</h3>
-                    {this.posts()}
+                    <Grid container spacing={3}>{this.posts()}</Grid>
                 </Grid>
             </ErrorBoundary>
         );
