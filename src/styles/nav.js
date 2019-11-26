@@ -6,6 +6,12 @@ export const navStyles = theme => ({
             '& a': {
                 opacity: 1
             }
+        },
+        [theme.breakpoints.up('lg')]: {
+            paddingRight: '50px'
+        },
+        [theme.breakpoints.up('xl')]: {
+            paddingRight: 0
         }
     },
     hamburgerHolder: {

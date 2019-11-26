@@ -28,14 +28,14 @@ class Header extends Component{
             <ErrorBoundary errorContent={null}>
                 <AppBar position="fixed">
                     <Grid container spacing={3}>
-                        <Grid item xs={9} sm={5} md={3} lg={3} xl={6}><Logo /></Grid>
+                        <Grid item xs={9} sm={5} md={3} lg={5} xl={6}><Logo /></Grid>
 
                         <Hidden mdDown className="spacer">
-                            <Hidden xlUp><Grid item md={5} lg={5}></Grid></Hidden>
+                            <Hidden xlUp><Grid item md={5} lg={1} xl={5}></Grid></Hidden>
                         </Hidden>
 
                         <Hidden mdDown>
-                            <Grid item xs={12} md={4}>
+                            <Grid item xs={12} md={4} lg={5} xl={4}>
                                 <Nav />
                             </Grid>
                         </Hidden>

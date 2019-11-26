@@ -9,7 +9,7 @@ const Logo = () => {
 
     return(
         <ErrorBoundary errorContent={<div id="logo">{n.REACT_APP_DEFAULT_LOGO_ALT}</div>}>
-            <Box display="flex" alignItems="center" justifyContent="center" p={1}>
+            <Box className={classes.root} display="flex" alignItems="center" justifyContent="center" p={1}>
                 <a className={`home-button secondary, ${classes.holder}`} href="/">
                     <img
                         id="logo"
