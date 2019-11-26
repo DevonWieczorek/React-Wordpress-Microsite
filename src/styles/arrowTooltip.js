@@ -51,13 +51,13 @@ export const useStylesArrow = makeStyles(theme => ({
     tooltip: {
         position: 'relative',
         opacity: 1,
-        zIndex: 999,
+        zIndex: 99999,
         background: 'rgba(97, 97, 97, 1)',
         backgroundColor: 'rgba(97, 97, 97, 1) !important',
         '& .disclosure-lightbox > h2': {
             color: '#fff'
         },
-        '& disclosure-lightbox p a:link': {
+        '& .disclosure-lightbox p a:link': {
             color: process.env.REACT_APP_DEFAULT_TERTIARY_THEME_COLOR
         }
     },

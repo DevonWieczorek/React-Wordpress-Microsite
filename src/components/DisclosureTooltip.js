@@ -49,7 +49,7 @@ const DisclosureTooltip = (props) => {
                             disableTouchListener
                             title={disclosure()}
                         >
-                            <Button className={classes.disclosure} onClick={toggleToolTopOpen}>
+                            <Button className={classes.tooltipLink} onClick={toggleToolTopOpen}>
                                 Sponsored Content Disclosure
                             </Button>
                         </ArrowTooltip>

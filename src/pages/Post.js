@@ -38,7 +38,9 @@ class Post extends Component{
         let {api} = this.props;
         if(prevProps.api.activePost !== api.activePost){
             // TSW lazyloads images
-            let content = api.activePost.content.rendered.replace('data-src', 'src');
+            let content = api.activePost.content.rendered.replace(/data-src/g, 'src');
+            // Clear any references to TSW
+            content = content.replace(/the smart wallet/gi, process.env.REACT_APP_DEFAULT_SITENAME);
 
             this.setState({...this.state,
                 id: api.activePost.id,
