@@ -7,13 +7,14 @@ export const postContentStyles = makeStyles(theme => ({
         maxWidth: '830px',
         padding: 0,
         '& a': {
+            textDecoration: 'underline !important',
             '&:hover': {
                 color: n.REACT_APP_DEFAULT_TERTIARY_THEME_COLOR
             }
         },
         '& #tbw-disclaimer': {
             position: 'relative',
-            top: '-5px',
+            top: '-10px',
             width: '100%',
             maxWidth: '750px',
             marginBottom: '10px',
@@ -59,6 +60,12 @@ export const postContentStyles = makeStyles(theme => ({
         }
     },
     content: {
+        fontSize: '1rem',
+        lineHeight: 1.6,
+        [theme.breakpoints.up('md')]: {
+            fontSize: '1.125rem',
+            lineHeight: 1.8
+        },
         '& a': {
             '&:hover': {
                 color: n.REACT_APP_DEFAULT_TERTIARY_THEME_COLOR
@@ -66,6 +73,15 @@ export const postContentStyles = makeStyles(theme => ({
         },
         '& p': {
             marginBottom: '1rem'
+        },
+        '& h3': {
+            marginTop: '2rem',
+            marginBottom: '1.625rem',
+            fontSize: '1.4375rem',
+            lineHeight: 1.3,
+            [theme.breakpoints.up('md')]: {
+                marginTop: '3rem'
+            }
         },
         '& figure': {
             maxWidth: '100%',
