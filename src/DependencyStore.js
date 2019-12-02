@@ -7,16 +7,18 @@ import ErrorBoundary from './components/ErrorBoundary';
 class DependencyStore extends Component {
     state = {
         scripts: {},
-        styles: {}
+        styles: {},
+        _scripts: [],
+        _styles: []
     }
 
     // Tag Building Functions
-    _buildScriptTag = (src, ver=false) => {
+    _buildScriptTag = (src, ver) => {
         if(ver) src += `?ver=${ver}`;
         return(<script type="text/javascript" src={src}></script>);
     }
 
-    _buildStyleLink = (src, ver=false) => {
+    _buildStyleLink = (src, ver) => {
         if(ver) src += `?ver=${ver}`;
         return(<link rel="stylesheet" type="text/css" href={src} />);
     }
@@ -32,7 +34,7 @@ class DependencyStore extends Component {
             src,
             ver,
             in_footer,
-            tag: (type === 'script') ? this._buildScriptTag(src, ver) : this._buildStyleLink(src, ver),
+            tag: (type === 'scripts') ? this._buildScriptTag(src, ver) : this._buildStyleLink(src, ver),
             rendered: false
         };
 
@@ -49,28 +51,24 @@ class DependencyStore extends Component {
 
     // Render Functions
     _build = (type, id) => {
-        let keys = Object.keys(this.state[type]);
+        let keys = Object.keys(this.state[type]).filter(i => (this.state[type][i].rendered === false));
 
         for(let i in keys){
-            let key = keys[i];
+            let el, key = keys[i];
             let obj = this.state[type][key];
 
-            if(!obj.rendered){
-                if(obj.in_footer){
-                    ReactDOM.render(obj.tag, document.getElementById(id));
-                }
-                else{
-                    ReactDOM.render(<Helmet>{obj.tag}</Helmet>, document.getElementById(id));
-                }
-
-                this.setState({...this.state, [type]: {
-                    ...this.state[type],
-                    [key]: {
-                        ...this.state[type][key],
-                        rendered: true
-                    }
-                }});
+            if(obj.in_footer){
+                el = React.createElement(ErrorBoundary, {key: i}, obj.tag);
             }
+            else{
+                el = React.createElement(ErrorBoundary, {key: i}, <Helmet>{obj.tag}</Helmet>);
+            }
+
+            let _state = {...this.state};
+            _state[`_${type}`].push(el);
+            _state[type][key].rendered = true;
+
+            this.setState({...this.state, ..._state});
         }
 
         HookStore.doAction( `${type}_enqueued` );
@@ -78,7 +76,14 @@ class DependencyStore extends Component {
 
     _buildScriptTags = () => this._build('scripts', 'script-holder');
 
-    _buildStyleLinks = () =>this._build('styles', 'style-holder');
+    _buildStyleLinks = () => this._build('styles', 'style-holder');
+
+    componentDidUpdate(prevProps, prevState){
+        if(this.state !== prevState){
+            this._buildScriptTags();
+            this._buildStyleLinks();
+        }
+    }
 
     componentDidMount(){
         HookStore.addAction('enqueue_scripts', 'DependencyStore', this._enqueueScript, 1);
@@ -91,8 +96,8 @@ class DependencyStore extends Component {
                 throw new Error('There was an error enqueuing scripts and styles from component.')
             }}>
                 <div id="dependency-store">
-                    <div id="script-holder">{this._buildScriptTags()}</div>
-                    <div id="style-holder">{this._buildStyleLinks()}</div>
+                    <div id="script-holder">{this.state._scripts}</div>
+                    <div id="style-holder">{this.state._styles}</div>
                 </div>
             </ErrorBoundary>
         );
