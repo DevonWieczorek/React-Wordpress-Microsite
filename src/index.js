@@ -9,6 +9,7 @@ import App from './App';
 import reducer from './reducers'
 import Meta from './components/Meta';
 import PluginStore from './components/PluginStore';
+import DependencyStore from './DependencyStore';
 import {theme} from './styles/theme'
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -26,6 +27,7 @@ let _app = (
                     <Meta />
                     <CssBaseline />
                     <App />
+                    <DependencyStore />
                 </ThemeProvider>
             </Router>
         </PluginStore>
