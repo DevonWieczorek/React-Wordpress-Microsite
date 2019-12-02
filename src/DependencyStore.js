@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {Helmet} from "react-helmet";
 import HookStore from './Hooks';
 import ErrorBoundary from './components/ErrorBoundary';
