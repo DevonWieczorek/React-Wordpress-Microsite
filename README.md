@@ -10,6 +10,10 @@ This project uses an event-driven model that utilizes the [Wordpress Hooks Packa
 - `init`
 - `before_plugin_registry`
 - `after_plugin_registry`
+- `enqueue_scripts`
+- `enqueue_styles`
+- `scripts_enqueued`
+- `styles_enqueued`
 
 ### Filters
 
@@ -78,7 +82,7 @@ Hooks.js
 ```
 
 #### Usage:
-Plugins will be required to export 1 high order component from their root (`index.js`).
+Plugins will be required to export 1 main plugin component from their root (`index.js`).
 Their directory will be added to the plugins directory.
 The plugin must be exported from `plugins/index.js` in order to be connected.
 
@@ -98,10 +102,24 @@ As a naming convention, it is suggested that the plugin component is prefixed wi
 #### Hooks and Filters:
 Just like Wordpress, the real power of a plugin architecture comes from the hooks and filters.
 Because this project uses the [Wordpress Hooks Package](https://www.ibenic.com/use-wordpress-hooks-package-javascript-apps/), plugins can import our global `HookStore` component from `../../Hooks`. Plugins should use their own namespace when registering filters and actions.
+
 *Please note that although we suggest prefixing your main plugin component with an underscore, the Wordpress Hooks Package does not accept the leading underscore in your namespace. Simply use your main plugin component name without the leading underscore.*
 
 #### State and Props
 Each plugin that is connected to the `PluginStore` will automatically receive all of your app's state and props. App props are drilled into each plugin component, the global state is mapped to their props, and all of the dispatch actions are mapped to their props as well. It is highly suggested that you take a look at the `PluginStore` source code to get a better idea for how it works.
+
+
+
+## `DependencyStore`
+To allow plugins to add scripts and stylesheets without adding them directly to the `index.html`, this project includes a `DependencyStore` component which handles the `enqueue_scripts` and `enqueue_styles` actions (similar to how you'd include additional scripts and styles in Wordpress).
+
+#### Order:
+Assets are enqueued with scripts first and then styles. Scripts will be added in the order in which they are enqueued, then the same for stylesheets.
+
+*Please note that we currently don't support passing in custom properties to your `<script>` or `<link>` tags. If you need to use the `async` property for your scripts, please manually add them to the `index.html`. For custom scripts, place them inside of the `public > scripts` directory and then manually add them to the `index.html` (See [Manually Adding Assets](https://github.com/FluentCo/React-Wordpress-Microsite#manually-adding-assets)).*
+
+#### Placement:
+By default, scripts and stylesheets will be added to the DOM inside of the `<head>` tag using [React Helmet](https://www.npmjs.com/package/react-helmet). You can set `is_footer` to add your scripts or stylesheets to the bottom of the page by passing `true` as your last argument when you are enqueueing your assets.
 
 
 
