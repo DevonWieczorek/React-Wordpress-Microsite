@@ -1,11 +1,11 @@
 import React from 'react';
-import {cleanDate, decodeHTMLEntity} from '../utils/misc';
+import {cleanDate, decodeHTMLEntity} from '@Utils/misc';
 import ErrorBoundary from '@Core/ErrorBoundary';
 import Card from '@material-ui/core/Card';
 import Link from '@material-ui/core/Link';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import {postCardStyles} from '../styles/postCard';
+import {postCardStyles} from '@Styles/postCard';
 
 const PostCard = (props) => {
     const classes = postCardStyles();

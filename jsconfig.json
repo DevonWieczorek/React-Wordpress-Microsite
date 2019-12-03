@@ -5,8 +5,15 @@
       "@Root/*": ["./*"],
       "@Public/*": ["./public/*"],
       "@Core/*": ["./core/*"],
-      "@Components/*": ["./components/*"],
-      "@Plugins/*": ["./plugins/*"]
+      "@Actions/*": ["./core/actions/*"],
+      "@Components/*": ["./core/components/*"],
+      "@Modules/*": ["./core/modules/*"],
+      "@Pages/*": ["./core/pages/*"],
+      "@Plugins/*": ["./plugins/*"],
+      "@Reducers/*": ["./core/reducers/*"],
+      "@Routes/*": ["./core/routes/*"],
+      "@Styles/*": ["./core/styles/*"],
+      "@Utils/*": ["./core/utils/*"]
     },
     "target": "ES6",
     "jsx": "preserve",

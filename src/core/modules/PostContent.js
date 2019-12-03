@@ -1,10 +1,10 @@
 import React from 'react';
-import DisclosureTooltip from '../components/DisclosureTooltip';
+import DisclosureTooltip from '@Components/DisclosureTooltip';
 import ErrorBoundary from '@Core/ErrorBoundary';
-import NotFound from '../pages/NotFound';
+import NotFound from '@Pages/NotFound';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import { postContentStyles } from '../styles/postContent';
+import { postContentStyles } from '@Styles/postContent';
 
 const PostContent = (props) => {
     const classes = postContentStyles();

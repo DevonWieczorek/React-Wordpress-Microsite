@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ErrorBoundary from '@Core/ErrorBoundary';
-import LogoIcon from '../components/LogoIcon';
+import LogoIcon from '@Components/LogoIcon';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Link from '@material-ui/core/Link';
-import {updateMeta, resetMeta} from '../actions';
-import {notFoundStyles} from '../styles/notFound';
+import {updateMeta, resetMeta} from '@Actions';
+import {notFoundStyles} from '@Styles/notFound';
 import { withStyles } from '@material-ui/core/styles';
 
 class NotFound extends Component{

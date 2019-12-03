@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Logo from '../components/Logo';
-import Nav from '../components/Nav';
+import Logo from '@Components/Logo';
+import Nav from '@Components/Nav';
 import ErrorBoundary from '@Core/ErrorBoundary';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
@@ -9,7 +9,7 @@ import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
-import {navStyles} from '../styles/nav';
+import {navStyles} from '@Styles/nav';
 import { withStyles } from '@material-ui/core/styles';
 
 class Header extends Component{

@@ -1,7 +1,7 @@
 import React from 'react';
 import ErrorBoundary from '@Core/ErrorBoundary';
 import Box from '@material-ui/core/Box';
-import { logoStyles } from '../styles/logo';
+import { logoStyles } from '@Styles/logo';
 
 const Logo = () => {
     const n = process.env;

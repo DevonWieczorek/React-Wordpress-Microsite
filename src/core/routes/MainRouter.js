@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Route, Switch, withRouter } from "react-router-dom";
 import ErrorBoundary from '@Core/ErrorBoundary';
-import Feed from '../pages/Feed';
-import Post from '../pages/Post';
-import NotFound from '../pages/NotFound'
-import {getCategories} from '../actions';
+import Feed from '@Pages/Feed';
+import Post from '@Pages/Post';
+import NotFound from '@Pages/NotFound'
+import {getCategories} from '@Actions';
 
 class MainRouter extends Component{
     componentDidMount(){

@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
-import NavItem from './NavItem';
-import LogoIcon from './LogoIcon';
+import NavItem from '@Components/NavItem';
+import LogoIcon from '@Components/LogoIcon';
 import ErrorBoundary from '@Core/ErrorBoundary';
 import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
 import Tabs from '@material-ui/core/Tabs';
-import {navStyles} from '../styles/nav';
+import {navStyles} from '@Styles/nav';
 import { withStyles } from '@material-ui/core/styles';
 
 class Nav extends Component{

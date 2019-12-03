@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
-import NotFound from '../pages/NotFound';
-import PostContent from '../modules/PostContent';
-import Siderail from '../modules/Siderail';
+import NotFound from '@Pages/NotFound';
+import PostContent from '@Modules/PostContent';
+import Siderail from '@Modules/Siderail';
 import ErrorBoundary from '@Core/ErrorBoundary';
-import {getPostBySlug, updateMeta} from '../actions';
-import {cleanDate, stripHTML, decodeHTMLEntity} from '../utils/misc';
+import {getPostBySlug, updateMeta} from '@Actions';
+import {cleanDate, stripHTML, decodeHTMLEntity} from '@Utils/misc';
 import Grid from '@material-ui/core/Grid';
 
 class Post extends Component{

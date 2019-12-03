@@ -4,15 +4,16 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
-import './index.css';
-import App from '@Root/App';
-import reducer from '@Root/reducers'
-import Meta from '@Components/Meta';
-import PluginStore from '@Core/PluginStore';
-import DependencyStore from '@Core/DependencyStore';
-import {theme} from '@Root/styles/theme'
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import './index.css';
+
+import PluginStore from '@Core/PluginStore';
+import DependencyStore from '@Core/DependencyStore';
+import App from '@Root/App';
+import reducer from '@Reducers'
+import Meta from '@Components/Meta';
+import {theme} from '@Styles/theme'
 
 import * as serviceWorker from './serviceWorker';
 

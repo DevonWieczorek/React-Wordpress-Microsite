@@ -1,10 +1,10 @@
 import React from 'react';
-import ArrowTooltip from '../components/ArrowTooltip';
+import ArrowTooltip from '@Components/ArrowTooltip';
 import ErrorBoundary from '@Core/ErrorBoundary';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import { postContentStyles } from '../styles/postContent';
+import { postContentStyles } from '@Styles/postContent';
 
 const DisclosureTooltip = (props) => {
     const [open, setOpen] = React.useState(false);

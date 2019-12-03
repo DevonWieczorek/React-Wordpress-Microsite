@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useStylesArrow} from '../styles/arrowTooltip';
+import {useStylesArrow} from '@Styles/arrowTooltip';
 import Tooltip from '@material-ui/core/Tooltip';
 
 const ArrowTooltip = (props) => {

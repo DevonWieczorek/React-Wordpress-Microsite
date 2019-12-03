@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import PostCard from '../components/PostCard';
+import PostCard from '@Components/PostCard';
 import ErrorBoundary from '@Core/ErrorBoundary';
 import Grid from '@material-ui/core/Grid';
-import {getPosts} from '../actions';
+import {getPosts} from '@Actions';
 
 class Siderail extends Component{
     posts = () => {

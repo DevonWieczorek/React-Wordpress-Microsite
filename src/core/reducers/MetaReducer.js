@@ -1,6 +1,6 @@
 import HookStore from '@Core/HookStore';
-import { META, RESET_META } from '../actions/types';
-import { mergeObjects } from '../utils/objects';
+import { META, RESET_META } from '@Actions/types';
+import { mergeObjects } from '@Utils/objects';
 
 const n = process.env;
 

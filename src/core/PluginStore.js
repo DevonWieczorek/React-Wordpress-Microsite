@@ -1,36 +1,4 @@
-/** * This component is build under the assumption that your file structure is as follows:
-* /
-* index.js
-* app.js
-* Hooks.js
-* -- components/
-* ---- PluginStore.js
-* -- actions/
-* ---- index.js
-* ---- action1.js
-* ---- action2.js
-* -- plugins/
-* ---- index.js
-* ---- plugin1.js
-* ---- plugin2.js
-*
-* Plugins will be required to export 1 high order component from their root (index.js).
-* Their directory will be added to the plugins directory.
-* The plugin must be exported from plugins/index.js in order to be connected.
-*
-* Plugins will be provided with a variety of hooks
-* to subscribe to using the @wordpress/hooks interface.
-* https://www.ibenic.com/use-wordpress-hooks-package-javascript-apps/
-*
-* To use this component, you would nest it inside your provider (if you have one)
-* then wrap your app inside of the PluginStore component.
-*
-* <Provider store={store}>
-*   <PluginStore>
-*       <App>
-*   </PluginStore>
-* </Provider>
-**/
+// https://github.com/FluentCo/React-Wordpress-Microsite#pluginstore
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
@@ -38,10 +6,10 @@ import HookStore from '@Core/HookStore';
 import ErrorBoundary from '@Core/ErrorBoundary';
 
 // We'll want to hook our plugins up to all of our actions
-import * as actions from '@Root/actions';
+import * as actions from '@Actions';
 
 // Let's assume plugins are added to/imported from plugins folder just like actions
-import * as plugins from "@Root/plugins";
+import * as plugins from "@Plugins";
 
 class PluginStore extends Component {
     constructor(props) {

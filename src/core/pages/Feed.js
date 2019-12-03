@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
-import PostCard from '../components/PostCard';
-import NotFound from '../pages/NotFound';
+import PostCard from '@Components/PostCard';
+import NotFound from '@Pages/NotFound';
 import ErrorBoundary from '@Core/ErrorBoundary';
 import Grid from '@material-ui/core/Grid';
-import {getPosts, updateMeta} from '../actions';
+import {getPosts, updateMeta} from '@Actions';
 
 class Feed extends Component{
     posts = () => {
