@@ -5,12 +5,12 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import './index.css';
-import App from './App';
-import reducer from './reducers'
-import Meta from './components/Meta';
-import PluginStore from './components/PluginStore';
-import DependencyStore from './DependencyStore';
-import {theme} from './styles/theme'
+import App from '@Root/App';
+import reducer from '@Root/reducers'
+import Meta from '@Components/Meta';
+import PluginStore from '@Root/PluginStore';
+import DependencyStore from '@Root/DependencyStore';
+import {theme} from '@Root/styles/theme'
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 

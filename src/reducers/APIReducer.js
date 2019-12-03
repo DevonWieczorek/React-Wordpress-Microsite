@@ -1,4 +1,4 @@
-import HookStore from '../Hooks';
+import HookStore from '../HookStore';
 import {UPDATE_TAGS, UPDATE_CATEGORIES, FETCH_POSTS, SINGLE_POST} from "../actions/types";
 
 const INITIAL_STATE = {

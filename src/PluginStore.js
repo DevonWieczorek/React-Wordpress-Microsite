@@ -34,14 +34,14 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import HookStore from '../Hooks';
-import ErrorBoundary from './ErrorBoundary';
+import HookStore from '@Root/HookStore';
+import ErrorBoundary from '@Components/ErrorBoundary';
 
 // We'll want to hook our plugins up to all of our actions
-import * as actions from '../actions';
+import * as actions from '@Root/actions';
 
 // Let's assume plugins are added to/imported from plugins folder just like actions
-import * as plugins from "../plugins";
+import * as plugins from "@Root/plugins";
 
 class PluginStore extends Component {
     constructor(props) {

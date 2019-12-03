@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Helmet} from "react-helmet";
-import HookStore from './Hooks';
+import HookStore from './HookStore';
 import ErrorBoundary from './components/ErrorBoundary';
 
 class DependencyStore extends Component {
