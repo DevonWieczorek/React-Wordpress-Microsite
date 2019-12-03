@@ -125,6 +125,9 @@ Because this project uses the [Wordpress Hooks Package](https://www.ibenic.com/u
 #### State and Props
 Each plugin that is connected to the `PluginStore` will automatically receive all of your app's state and props. App props are drilled into each plugin component, the global state is mapped to their props, and all of the dispatch actions are mapped to their props as well. It is highly suggested that you take a look at the `PluginStore` source code to get a better idea for how it works.
 
+#### `.gitignore`
+For the sake of keeping this "core" project pure, all files are ignored from the `plugins/` directory except for the `index.js`. If you need to commit any custom plugin code that you wrote, you'll have to update the `.gitignore` in the root of your project.
+
 
 
 ## `DependencyStore`
