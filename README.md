@@ -92,8 +92,10 @@ app.js
 ------ ...
 -- plugins/
 ---- index.js
----- plugin1.js
----- plugin2.js
+---- _plugin1/
+------ index.js
+---- _plugin2/
+------ index.js
 ```
 
 #### Usage:
@@ -187,7 +189,7 @@ The `plugins/` directory sits inside of our root as a sibling of `core/`. This d
 
 The `@Plugins` alias allows plugins to easily import files from one another, or for the main app to import plugin code (although neither of these cases should be common).
 
-The main use for the `@Plugins` alias is for the `PluginStore` to loop through and activate each plugin. 
+The main use for the `@Plugins` alias is for the `PluginStore` to loop through and activate each plugin.
 
 
 
