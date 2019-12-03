@@ -1,6 +1,6 @@
 {
-  "short_name": "%REACT_APP_DEFAULT_TITLE%",
-  "name": "%REACT_APP_DEFAULT_DESCRIPTION%",
+  "short_name": "React WP",
+  "name": "React Wordpress Microsite",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "%REACT_APP_DEFAULT_PRIMARY_THEME_COLOR%",
-  "background_color": "%REACT_APP_DEFAULT_HEADER_TEXT_COLOR%"
+  "theme_color": "#19405E",
+  "background_color": "#494949"
 }
