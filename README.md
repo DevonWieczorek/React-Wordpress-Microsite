@@ -68,13 +68,28 @@ The PluginStore is built under the assumption that your project follows a simila
 /src
 index.js
 app.js
-Hooks.js
--- components/
+-- core/
+---- HookStore.js
+---- ErrorBoundary.js
+---- DependencyStore.js
 ---- PluginStore.js
--- actions/
----- index.js
----- action1.js
----- action2.js
+---- actions/
+------ index.js
+------ action1.js
+------ action2.js
+---- components/
+---- modules/
+------ ...
+---- pages/
+------ ...
+---- reducers/
+------ ...
+---- routes/
+------ ...
+---- styles/
+------ ...
+---- utils/
+------ ...
 -- plugins/
 ---- index.js
 ---- plugin1.js
@@ -101,7 +116,7 @@ As a naming convention, it is suggested that the plugin component is prefixed wi
 
 #### Hooks and Filters:
 Just like Wordpress, the real power of a plugin architecture comes from the hooks and filters.
-Because this project uses the [Wordpress Hooks Package](https://www.ibenic.com/use-wordpress-hooks-package-javascript-apps/), plugins can import our global `HookStore` component from `../../Hooks`. Plugins should use their own namespace when registering filters and actions.
+Because this project uses the [Wordpress Hooks Package](https://www.ibenic.com/use-wordpress-hooks-package-javascript-apps/), plugins can import our global `HookStore` component from `@Core/HookStore`. Plugins should use their own namespace when registering filters and actions.
 
 *Please note that although we suggest prefixing your main plugin component with an underscore, the Wordpress Hooks Package does not accept the leading underscore in your namespace. Simply use your main plugin component name without the leading underscore.*
 
