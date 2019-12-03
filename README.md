@@ -138,5 +138,58 @@ By default, scripts and stylesheets will be added to the DOM inside of the `<hea
 
 
 
+## Absolute Imports
+In order to keep importing core files simple, this project uses [CRA Alias](https://www.npmjs.com/package/cra-alias) to create aliases for important paths.
+
+#### `@Root`
+This refers to the `src/` directory, which is the root of our project during development.
+
+#### `@Public`
+This alias jumps one directory outside of the root and then references the `public/` directory. This can be used for easily importing custom scripts or stylesheets.
+
+#### `@Core`
+This directory contains all of our core code.
+
+It includes the following top-level components:
+- `DependencyStore`
+- `ErrorBoundary`
+- `HookStore`
+- `PluginStore`
+
+In addition to the top-level components, `@Core` contains our other main directories.
+
+#### `@Actions`
+Because we export all of our actions from `actions/index.js` we can directly import our actions from `@Actions`.
+
+#### `@Components`
+Our core components.
+
+#### `@Modules`
+Our core modules, made up of components.
+
+#### `@Pages`
+Our app's pages (views), made up of components and modules.
+
+#### `@Reducers`
+Because we export all of our reducers from `reducers/index.js` we can directly import our reducers from `@Reducers`.
+
+#### `@Routes`
+Our project uses [React Router DOM](https://www.npmjs.com/package/react-router-dom) for routing. We can import our main router from `@Routes/MainRouter`;
+
+#### `@Styles`
+[Material UI](https://material-ui.com/styles/basics/) pushes you to use CSS-in-JS for styling. The main styles for our component can be imported with `@Styles` as their root.
+
+#### `@Utils`
+This project utilizes a handful of utility scripts for miscellaneous re-used functions. Any of our utility scripts can be imported with `@Utils` as their root.
+
+#### `@Plugins`
+The `plugins/` directory sits inside of our root as a sibling of `core/`. This directory is where any extensibility should be written. Changes to the app can be made via plugins, which allows us to avoid touching the core code *(See [PluginStore](https://github.com/FluentCo/React-Wordpress-Microsite#pluginstore) for more information)*.
+
+The `@Plugins` alias allows plugins to easily import files from one another, or for the main app to import plugin code (although neither of these cases should be common).
+
+The main use for the `@Plugins` alias is for the `PluginStore` to loop through and activate each plugin. 
+
+
+
 ## Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
