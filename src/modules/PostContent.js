@@ -1,6 +1,6 @@
 import React from 'react';
 import DisclosureTooltip from '../components/DisclosureTooltip';
-import ErrorBoundary from '../components/ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 import NotFound from '../pages/NotFound';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';

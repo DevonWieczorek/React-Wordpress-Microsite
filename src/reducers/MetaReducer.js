@@ -1,4 +1,4 @@
-import HookStore from '../HookStore';
+import HookStore from '@Core/HookStore';
 import { META, RESET_META } from '../actions/types';
 import { mergeObjects } from '../utils/objects';
 

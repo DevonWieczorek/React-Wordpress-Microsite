@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Logo from '../components/Logo';
 import Nav from '../components/Nav';
-import ErrorBoundary from '../components/ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import AppBar from '@material-ui/core/AppBar';

@@ -1,6 +1,6 @@
 import React from 'react';
 import {cleanDate, decodeHTMLEntity} from '../utils/misc';
-import ErrorBoundary from './ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 import Card from '@material-ui/core/Card';
 import Link from '@material-ui/core/Link';
 import CardContent from '@material-ui/core/CardContent';

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PostCard from '../components/PostCard';
-import ErrorBoundary from '../components/ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 import Grid from '@material-ui/core/Grid';
 import {getPosts} from '../actions';
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Helmet} from "react-helmet";
-import HookStore from './HookStore';
-import ErrorBoundary from './components/ErrorBoundary';
+import HookStore from '@Core/HookStore';
+import ErrorBoundary from '@Core/ErrorBoundary';
 
 class DependencyStore extends Component {
     state = {

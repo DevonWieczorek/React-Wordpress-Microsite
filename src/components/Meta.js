@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import MetaTags from 'react-meta-tags';
-import ErrorBoundary from './ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 
 class Meta extends Component {
     render(){

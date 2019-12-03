@@ -1,4 +1,4 @@
-import HookStore from '../HookStore';
+import HookStore from '@Core/HookStore';
 import {UPDATE_TAGS, UPDATE_CATEGORIES, FETCH_POSTS, SINGLE_POST} from "./types";
 
 const n = process.env;

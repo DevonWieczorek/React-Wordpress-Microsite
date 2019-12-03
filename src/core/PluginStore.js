@@ -34,8 +34,8 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import HookStore from '@Root/HookStore';
-import ErrorBoundary from '@Components/ErrorBoundary';
+import HookStore from '@Core/HookStore';
+import ErrorBoundary from '@Core/ErrorBoundary';
 
 // We'll want to hook our plugins up to all of our actions
 import * as actions from '@Root/actions';

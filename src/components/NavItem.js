@@ -1,5 +1,5 @@
 import React from 'react';
-import ErrorBoundary from './ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Tab from '@material-ui/core/Tab';

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
 import NavItem from './NavItem';
 import LogoIcon from './LogoIcon';
-import ErrorBoundary from './ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
 import Tabs from '@material-ui/core/Tabs';

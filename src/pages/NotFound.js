@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import ErrorBoundary from '../components/ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 import LogoIcon from '../components/LogoIcon';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';

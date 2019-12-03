@@ -1,6 +1,6 @@
 import React from 'react';
 import ArrowTooltip from '../components/ArrowTooltip';
-import ErrorBoundary from '../components/ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';

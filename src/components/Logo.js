@@ -1,5 +1,5 @@
 import React from 'react';
-import ErrorBoundary from './ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 import Box from '@material-ui/core/Box';
 import { logoStyles } from '../styles/logo';
 

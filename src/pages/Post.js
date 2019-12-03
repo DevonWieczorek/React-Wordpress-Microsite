@@ -4,7 +4,7 @@ import {withRouter} from "react-router-dom";
 import NotFound from '../pages/NotFound';
 import PostContent from '../modules/PostContent';
 import Siderail from '../modules/Siderail';
-import ErrorBoundary from '../components/ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 import {getPostBySlug, updateMeta} from '../actions';
 import {cleanDate, stripHTML, decodeHTMLEntity} from '../utils/misc';
 import Grid from '@material-ui/core/Grid';

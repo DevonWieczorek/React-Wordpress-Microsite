@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
-import HookStore from './HookStore';
+import HookStore from '@Core/HookStore';
 import Header from './modules/Header';
 import MainRouter from './routes/MainRouter';
 import NotFound from './pages/NotFound';
-import ErrorBoundary from '@Components/ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 import Container from '@material-ui/core/Container';
 import {globalStyles} from './styles/global';
 import { withTheme, withStyles } from '@material-ui/core/styles';

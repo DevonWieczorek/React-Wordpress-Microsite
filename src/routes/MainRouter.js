@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Route, Switch, withRouter } from "react-router-dom";
-import ErrorBoundary from '../components/ErrorBoundary';
+import ErrorBoundary from '@Core/ErrorBoundary';
 import Feed from '../pages/Feed';
 import Post from '../pages/Post';
 import NotFound from '../pages/NotFound'
