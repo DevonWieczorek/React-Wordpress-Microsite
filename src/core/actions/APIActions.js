@@ -69,3 +69,19 @@ export const getPostBySlug = (slug) => {
             });
     }
 }
+
+export const getPageByID = (slug) => {
+    return dispatch => {
+        let _endpoint = `${n.REACT_APP_DEFAULT_POST_ENDPOINT}/pages/${slug}`;
+        _endpoint = HookStore.applyFilters('get_single_page', _endpoint);
+
+        fetch(_endpoint, {dataType: 'jsonp'})
+            .then(res => res.json())
+            .then(res => {
+                dispatch({type: SINGLE_POST, payload: res[0]});
+            })
+            .catch(err => {
+                console.log(`There was an error getting data from ${_endpoint}:`, err);
+            });
+    }
+}

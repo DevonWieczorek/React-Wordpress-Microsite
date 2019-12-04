@@ -23,6 +23,7 @@ This project uses an event-driven model that utilizes the [Wordpress Hooks Packa
 - `get_categories`
 - `get_posts`
 - `get_single_post`
+- `get_single_page`
 
 #### Data Filters
 - `got_tags`
