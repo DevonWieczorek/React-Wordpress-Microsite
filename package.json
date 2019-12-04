@@ -24,7 +24,8 @@
         "start": "cra-alias start",
         "build": "cra-alias build",
         "test": "cra-alias test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "publish": "aws s3 cp $(pwd) s3://tsw-microsites-bucket/making-better-money/ --recursive"
     },
     "eslintConfig": {
         "extends": "react-app"
