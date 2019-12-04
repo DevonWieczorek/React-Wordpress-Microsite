@@ -207,5 +207,10 @@ The main use for the `@Plugins` alias is for the `PluginStore` to loop through a
 
 
 
+## Deployment
+To deploy your project to AWS, simply run `npm run-script publish` in the command line from anywhere in your project. Under the hood, this command is just copying all the files from your `build/` directory and dumping them into an S3 bucket.
+
+
+
 ## Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
