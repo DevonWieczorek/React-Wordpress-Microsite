@@ -15,31 +15,37 @@ class MainRouter extends Component{
     render(){
         return(
             <Switch>
-                <Route exact path="/" key="homeFeed" component={() => {
-                    return(
-                        <ErrorBoundary errorContent={<NotFound />}>
-                            <Feed />
-                        </ErrorBoundary>
-                    );
-                }} />
+                <Route exact path="/" key="homeFeed" component={() => (
+                    <ErrorBoundary errorContent={<NotFound />}>
+                        <Feed />
+                    </ErrorBoundary>
+                )} />
+
+                <Route path="/terms" key="terms" component={() => (
+                    <ErrorBoundary errorContent={<NotFound />}>
+                        <Post isPage={true} slug={process.env.REACT_APP_DEFAULT_TERMS_CONDITIONS_ID} />
+                    </ErrorBoundary>
+                )} />
+
+                <Route path="/privacy-policy" key="privacy-policy" component={() => (
+                    <ErrorBoundary errorContent={<NotFound />}>
+                        <Post isPage={true} slug={process.env.REACT_APP_DEFAULT_PRIVACY_POLICY_ID} />
+                    </ErrorBoundary>
+                )} />
 
                 <Route exact path="/404" key="404page" component={NotFound} />
 
-                <Route path="/categories/:category" key="category" component={() => {
-                    return(
-                        <ErrorBoundary errorContent={<NotFound />}>
-                            <Feed />
-                        </ErrorBoundary>
-                    );
-                }} />
+                <Route path="/categories/:category" key="category" component={() => (
+                    <ErrorBoundary errorContent={<NotFound />}>
+                        <Feed />
+                    </ErrorBoundary>
+                )} />
 
-                <Route path="/posts/:slug" key="posts" component={() => {
-                    return(
-                        <ErrorBoundary errorContent={<NotFound />}>
-                            <Post />
-                        </ErrorBoundary>
-                    );
-                }} />
+                <Route path="/posts/:slug" key="posts" component={() => (
+                    <ErrorBoundary errorContent={<NotFound />}>
+                        <Post />
+                    </ErrorBoundary>
+                )} />
 
                 <Route key="404fallback" component={NotFound} />
             </Switch>
