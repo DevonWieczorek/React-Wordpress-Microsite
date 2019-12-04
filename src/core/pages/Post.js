@@ -41,6 +41,9 @@ class Post extends Component{
             let content = api.activePost.content.rendered.replace(/data-src/g, 'src');
             // Clear any references to TSW
             content = content.replace(/the smart wallet/gi, process.env.REACT_APP_DEFAULT_SITENAME);
+            // Update internal links
+            let tswAnchorRegex = /(\S*?)href=(["'])(http:\/\/|https:\/\/)(thesmartwallet\.com)\1/gi;
+            content = content.replace(tswAnchorRegex, `href="${window.location.host}/posts`);
 
             this.setState({...this.state,
                 id: api.activePost.id,
