@@ -40,8 +40,7 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, ...applyMetaFilters(metaData) }
 
         case RESET_META:
-            let meta = applyMetaFilters(INITIAL_STATE);
-            return { ...state, ...meta }
+            return { ...applyMetaFilters(INITIAL_STATE) }
 
         default:
             return state;
