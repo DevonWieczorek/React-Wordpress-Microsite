@@ -49,6 +49,9 @@ export default (state = INITIAL_STATE, action) => {
             post.excerpt.rendered = HookStore.applyFilters('the_excerpt', post.excerpt.rendered);
             post.content.rendered = HookStore.applyFilters('the_content', post.content.rendered);
 
+            // Expose postID for tracking
+            window['postID'] = post.id;
+
             return {...state, activePost: post};
 
         default:
