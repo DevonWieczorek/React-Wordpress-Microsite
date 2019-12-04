@@ -77,6 +77,7 @@ class Post extends Component{
                         author={this.state.author}
                         date={this.state.date}
                         content={this.state.content}
+                        showTooltip={(this.props.isPage) ? false : true}
                     />
                     <Siderail postID={this.state.id} />
                 </Grid>

@@ -14,7 +14,7 @@ const PostContent = (props) => {
             <Grid item xs={12} lg={9} key={`g-${props.postID}`}>
                 {props.content ?
                     <Box component="div" className={`card, ${classes.root}`} id={`post-${props.postID}`}>
-                        <DisclosureTooltip/>
+                        {(props.showTooltip) ? <DisclosureTooltip/> : null}
 
                         <h1 className={`title, ${classes.title}`} dangerouslySetInnerHTML={
                             { __html: props.title }
@@ -26,7 +26,7 @@ const PostContent = (props) => {
                                     by <span className="author-name">{props.author}</span>
                                 </span>
                             : null}
-                            
+
                             {(props.date) ?
                                 <span className={`post-date, ${classes.date}`}>
                                     {`Updated on ${props.date}`}
