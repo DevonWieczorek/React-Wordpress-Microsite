@@ -21,12 +21,17 @@ const PostContent = (props) => {
                         }></h1>
 
                     <div className={`post-info, ${classes.info}`}>
-                            <span className="author">
-                                by <span className="author-name">{props.author}</span>
-                            </span>
-                            <span className={`post-date, ${classes.date}`}>
-                                {`Updated on ${props.date}`}
-                            </span>
+                            {(props.author) ?
+                                <span className="author">
+                                    by <span className="author-name">{props.author}</span>
+                                </span>
+                            : null}
+                            
+                            {(props.date) ?
+                                <span className={`post-date, ${classes.date}`}>
+                                    {`Updated on ${props.date}`}
+                                </span>
+                            : null}
                         </div>
 
                         <div className={`post-content, ${classes.content}`} dangerouslySetInnerHTML={
