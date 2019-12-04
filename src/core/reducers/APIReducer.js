@@ -1,5 +1,5 @@
 import HookStore from '@Core/HookStore';
-import {UPDATE_TAGS, UPDATE_CATEGORIES, FETCH_POSTS, SINGLE_POST} from "../actions/types";
+import {UPDATE_TAGS, UPDATE_CATEGORIES, FETCH_POSTS, SINGLE_POST, SINGLE_PAGE} from "../actions/types";
 
 const INITIAL_STATE = {
     tags: [],
@@ -53,6 +53,26 @@ export default (state = INITIAL_STATE, action) => {
             window['postID'] = post.id;
 
             return {...state, activePost: post};
+
+        case SINGLE_PAGE:
+            let page = HookStore.applyFilters('the_post', action.payload);
+            page.slug = HookStore.applyFilters('the_slug', page.slug);
+            page.title.rendered = HookStore.applyFilters('the_title', page.title.rendered);
+            page.featured_image = HookStore.applyFilters('the_featured_image', page.featured_image);
+            if(page.metadata && page.metadata.display_aname){
+                page.author_name = HookStore.applyFilters('the_author', page.metadata.display_aname[0]);
+            }
+            else{
+                page.author_name = HookStore.applyFilters('the_author', '');
+            }
+            page.date = HookStore.applyFilters('the_date', page.date);
+            page.excerpt.rendered = HookStore.applyFilters('the_excerpt', page.excerpt.rendered);
+            page.content.rendered = HookStore.applyFilters('the_content', page.content.rendered);
+
+            // Expose pageID for tracking
+            window['postID'] = page.id;
+
+            return {...state, activePost: page};
 
         default:
             return state;

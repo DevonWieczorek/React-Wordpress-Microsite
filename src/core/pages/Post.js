@@ -5,7 +5,7 @@ import NotFound from '@Pages/NotFound';
 import PostContent from '@Modules/PostContent';
 import Siderail from '@Modules/Siderail';
 import ErrorBoundary from '@Core/ErrorBoundary';
-import {getPostBySlug, updateMeta} from '@Actions';
+import {getPostBySlug, updateMeta, getPageByID} from '@Actions';
 import {cleanDate, stripHTML, decodeHTMLEntity} from '@Utils/misc';
 import Grid from '@material-ui/core/Grid';
 
@@ -53,10 +53,15 @@ class Post extends Component{
     }
 
     componentDidMount(){
-        let {location} = this.props;
-        let paths = location.pathname.split('/');
-        let slug = paths[paths.length - 1] || '';
-        this.props.getPostBySlug(slug);
+        let {location, isPage} = this.props;
+        if(isPage){
+            this.props.getPageByID(this.props.slug);
+        }
+        else{
+            let paths = location.pathname.split('/');
+            let slug = paths[paths.length - 1] || '';
+            this.props.getPostBySlug(slug);
+        }
     }
 
     render(){
@@ -79,4 +84,4 @@ class Post extends Component{
 
 const mapStateToProps = (state) => ({ api: state.api });
 
-export default connect(mapStateToProps, {getPostBySlug, updateMeta})(withRouter(Post));
+export default connect(mapStateToProps, {getPostBySlug, updateMeta, getPageByID})(withRouter(Post));

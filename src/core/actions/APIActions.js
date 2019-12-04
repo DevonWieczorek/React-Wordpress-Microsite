@@ -1,5 +1,5 @@
 import HookStore from '@Core/HookStore';
-import {UPDATE_TAGS, UPDATE_CATEGORIES, FETCH_POSTS, SINGLE_POST} from "./types";
+import {UPDATE_TAGS, UPDATE_CATEGORIES, FETCH_POSTS, SINGLE_POST, SINGLE_PAGE} from "./types";
 
 const n = process.env;
 
@@ -72,13 +72,13 @@ export const getPostBySlug = (slug) => {
 
 export const getPageByID = (slug) => {
     return dispatch => {
-        let _endpoint = `${n.REACT_APP_DEFAULT_POST_ENDPOINT}/pages/${slug}`;
+        let _endpoint = `${n.REACT_APP_DEFAULT_ENDPOINT}/pages/${slug}`;
         _endpoint = HookStore.applyFilters('get_single_page', _endpoint);
 
         fetch(_endpoint, {dataType: 'jsonp'})
             .then(res => res.json())
             .then(res => {
-                dispatch({type: SINGLE_POST, payload: res[0]});
+                dispatch({type: SINGLE_PAGE, payload: res});
             })
             .catch(err => {
                 console.log(`There was an error getting data from ${_endpoint}:`, err);

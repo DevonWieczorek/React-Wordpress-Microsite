@@ -10,3 +10,4 @@ export const UPDATE_TAGS = 'update_tags';
 export const UPDATE_CATEGORIES = 'update_categories';
 export const FETCH_POSTS = 'fetch_posts';
 export const SINGLE_POST = 'single_post';
+export const SINGLE_PAGE = 'single_page';
