@@ -30,18 +30,17 @@ const applyMetaFilters = (meta) => {
     meta.ogSiteName = HookStore.applyFilters('meta_og_site_name', meta.ogSiteName);
     meta.ogType = HookStore.applyFilters('meta_og_type', meta.ogType);
     meta.ogURL = HookStore.applyFilters('meta_og_url', meta.ogURL);
+    return meta;
 }
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case META:
             let metaData = mergeObjects(INITIAL_STATE, action.payload);
-            metaData = applyMetaFilters(metaData);
-            return { ...state, ...metaData }
+            return { ...state, ...applyMetaFilters(metaData) }
 
         case RESET_META:
-            let meta = applyMetaFilters(INITIAL_STATE);
-            return { ...state, ...meta }
+            return { ...applyMetaFilters(INITIAL_STATE) }
 
         default:
             return state;
