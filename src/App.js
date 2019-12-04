@@ -5,6 +5,7 @@ import HookStore from '@Core/HookStore';
 import Header from '@Modules/Header';
 import MainRouter from '@Routes/MainRouter';
 import NotFound from '@Pages/NotFound';
+import Footer from '@Components/Footer';
 import ErrorBoundary from '@Core/ErrorBoundary';
 import Container from '@material-ui/core/Container';
 import {globalStyles} from '@Core/styles/global';
@@ -25,6 +26,7 @@ class App extends Component{
                 <Container className="App">
                     <Header />
                     <MainRouter />
+                    <Footer />
                 </Container>
             </ErrorBoundary>
         );
