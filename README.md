@@ -29,6 +29,7 @@ This project uses an event-driven model that utilizes the [Wordpress Hooks Packa
 
 #### Post Feed Filters
 - `post_feed`
+- `post_slug`
 - `post_title`
 - `post_featured_image`
 - `post_author`
@@ -38,6 +39,7 @@ This project uses an event-driven model that utilizes the [Wordpress Hooks Packa
 
 #### Individual Post Filters
 - `the_post`
+- `the_slug`
 - `the_title`
 - `the_featured_image`
 - `the_author`

@@ -28,6 +28,7 @@ export default (state = INITIAL_STATE, action) => {
             let posts = HookStore.applyFilters('post_feed', action.payload);
             for(let p in posts){
                 let post = posts[p];
+                post.slug = HookStore.applyFilters('post_slug', post.slug);
                 post.title.rendered = HookStore.applyFilters('post_title', post.title.rendered);
                 post.featured_image = HookStore.applyFilters('post_featured_image', post.featured_image);
                 post.author_name = HookStore.applyFilters('post_author', post.metadata.display_aname[0]);
@@ -40,6 +41,7 @@ export default (state = INITIAL_STATE, action) => {
 
         case SINGLE_POST:
             let post = HookStore.applyFilters('the_post', action.payload);
+            post.slug = HookStore.applyFilters('the_slug', post.slug);
             post.title.rendered = HookStore.applyFilters('the_title', post.title.rendered);
             post.featured_image = HookStore.applyFilters('the_featured_image', post.featured_image);
             post.author_name = HookStore.applyFilters('the_author', post.metadata.display_aname[0]);
