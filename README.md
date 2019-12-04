@@ -14,6 +14,7 @@ This project uses an event-driven model that utilizes the [Wordpress Hooks Packa
 - `enqueue_styles`
 - `scripts_enqueued`
 - `styles_enqueued`
+- `window_loaded`
 
 ### Filters
 
@@ -143,6 +144,11 @@ Assets are enqueued with scripts first and then styles. Scripts will be added in
 #### Placement:
 By default, scripts and stylesheets will be added to the DOM inside of the `<head>` tag using [React Helmet](https://www.npmjs.com/package/react-helmet). You can set `is_footer` to add your scripts or stylesheets to the bottom of the page by passing `true` as your last argument when you are enqueueing your assets.
 
+*TODO: Debug footer scripts & test footer styles!!*
+
+#### Loading:
+If you need to reference functions that exist in an enqueued script from within a component, use the `window_loaded` action to make sure your script has been loaded.
+
 
 
 ## Absolute Imports
@@ -153,6 +159,8 @@ This refers to the `src/` directory, which is the root of our project during dev
 
 #### `@Public`
 This alias jumps one directory outside of the root and then references the `public/` directory. This can be used for easily importing custom scripts or stylesheets.
+
+*TODO: Deprecate*
 
 #### `@Core`
 This directory contains all of our core code.

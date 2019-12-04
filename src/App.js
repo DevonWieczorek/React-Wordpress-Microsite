@@ -13,6 +13,10 @@ import { withTheme, withStyles } from '@material-ui/core/styles';
 class App extends Component{
     componentDidMount(){
         HookStore.doAction( 'init' );
+
+        window.addEventListener('load', () => {
+            HookStore.doAction( 'window_loaded' );
+        });
     }
 
     render(){
