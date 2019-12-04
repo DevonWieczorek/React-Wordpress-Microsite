@@ -1,7 +1,9 @@
 export const navStyles = theme => ({
     root: {
         justifyContent: 'flex-end',
+        height: '100%',
         '& .MuiTabs-flexContainer': {
+            height: '100%',
             justifyContent: 'flex-end',
             '& a': {
                 opacity: 1
