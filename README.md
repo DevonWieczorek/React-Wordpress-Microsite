@@ -145,8 +145,6 @@ Assets are enqueued with scripts first and then styles. Scripts will be added in
 #### Placement:
 By default, scripts and stylesheets will be added to the DOM inside of the `<head>` tag using [React Helmet](https://www.npmjs.com/package/react-helmet). You can set `is_footer` to add your scripts or stylesheets to the bottom of the page by passing `true` as your last argument when you are enqueueing your assets.
 
-*TODO: Debug footer scripts & test footer styles!!*
-
 #### Loading:
 If you need to reference functions that exist in an enqueued script from within a component, use the `window_loaded` action to make sure your script has been loaded.
 

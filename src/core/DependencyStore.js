@@ -12,14 +12,22 @@ class DependencyStore extends Component {
     }
 
     // Tag Building Functions
-    _buildScriptTag = (src, ver) => {
+    _buildScriptTag = (src, ver, in_footer) => {
         if(ver) src += `?ver=${ver}`;
-        return(<script type="text/javascript" src={src}></script>);
+        let script = document.createElement('script');
+        script.type = "text/javascript";
+        script.src = src;
+        if(in_footer) script.async = true;
+        return script;
     }
 
     _buildStyleLink = (src, ver) => {
         if(ver) src += `?ver=${ver}`;
-        return(<link rel="stylesheet" type="text/css" href={src} />);
+        let link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = src;
+        return link;
     }
 
     // Asset Enqueue Functions
@@ -29,11 +37,13 @@ class DependencyStore extends Component {
         }
 
         let _state = {...this.state};
+        let tag = (type === 'scripts') ? this._buildScriptTag(src, ver, in_footer) : this._buildStyleLink(src, ver, in_footer);
+
         _state[type][handle] = {
             src,
             ver,
             in_footer,
-            tag: (type === 'scripts') ? this._buildScriptTag(src, ver) : this._buildStyleLink(src, ver),
+            tag,
             rendered: false
         };
 
@@ -52,21 +62,21 @@ class DependencyStore extends Component {
     _build = (type, id) => {
         let keys = Object.keys(this.state[type]).filter(i => (this.state[type][i].rendered === false));
 
+        let _state = {...this.state};
+
         for(let i in keys){
             let el, key = keys[i];
             let obj = this.state[type][key];
 
             if(obj.in_footer){
-                el = React.createElement(ErrorBoundary, {key: i}, obj.tag);
+                document.getElementById(`${type}-holder`).appendChild(obj.tag);
             }
             else{
                 el = React.createElement(ErrorBoundary, {key: i}, <Helmet>{obj.tag}</Helmet>);
+                _state[`_${type}`].push(el);
             }
 
-            let _state = {...this.state};
-            _state[`_${type}`].push(el);
             _state[type][key].rendered = true;
-
             this.setState({...this.state, ..._state});
         }
 
@@ -95,8 +105,8 @@ class DependencyStore extends Component {
                 throw new Error('There was an error enqueuing scripts and styles from component.')
             }}>
                 <div id="dependency-store">
-                    <div id="script-holder">{this.state._scripts}</div>
-                    <div id="style-holder">{this.state._styles}</div>
+                    <div id="scripts-holder">{this.state._scripts}</div>
+                    <div id="styles-holder">{this.state._styles}</div>
                 </div>
             </ErrorBoundary>
         );
