@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
+import HookStore from "@Core/HookStore";
 import NotFound from '@Pages/NotFound';
 import PostContent from '@Modules/PostContent';
 import Siderail from '@Modules/Siderail';
@@ -34,28 +35,40 @@ class Post extends Component{
         this.props.updateMeta(meta);
     }
 
+    replaceContent = (content) => {
+        // TSW lazyloads images, we don't 
+        content = content.replace(/data-src/g, 'src');
+
+        // Clear any references to TSW
+        content = content.replace(/the smart wallet/gi, process.env.REACT_APP_DEFAULT_SITENAME);
+
+        // Replace contact-us with mailto: link
+        let tswContactRegex = /(http:\/\/|https:\/\/)(thesmartwallet\.com\/contact-us)/gi;
+        content = content.replace(tswContactRegex, `mailto:info@${window.location.host}`);
+
+        // Update internal links
+        let tswAnchorRegex = /(\S*?)href=(["'])(http:\/\/|https:\/\/)(thesmartwallet\.com)\1/gi;
+        content = content.replace(tswAnchorRegex, `href="${window.location.host}/posts`);
+
+        return content;
+    }
+
     componentDidUpdate(prevProps, prevState){
         let {api} = this.props;
         if(prevProps.api.activePost !== api.activePost){
-            // TSW lazyloads images
-            let content = api.activePost.content.rendered.replace(/data-src/g, 'src');
-            // Clear any references to TSW
-            content = content.replace(/the smart wallet/gi, process.env.REACT_APP_DEFAULT_SITENAME);
-            // Update internal links
-            let tswAnchorRegex = /(\S*?)href=(["'])(http:\/\/|https:\/\/)(thesmartwallet\.com)\1/gi;
-            content = content.replace(tswAnchorRegex, `href="${window.location.host}/posts`);
-
             this.setState({...this.state,
                 id: api.activePost.id,
                 title: api.activePost.title.rendered,
                 author: api.activePost.author_name,
                 date: cleanDate(api.activePost.modified),
-                content: content
+                content: api.activePost.content.rendered
             }, () => {this.updateMeta()})
         }
     }
 
     componentDidMount(){
+        HookStore.addFilter( 'the_content', 'Post', this.replaceContent, 1 );
+
         let {location, isPage} = this.props;
         if(isPage){
             this.props.getPageByID(this.props.slug);
