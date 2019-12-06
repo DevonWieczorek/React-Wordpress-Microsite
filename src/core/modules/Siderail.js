@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import HookStore from '@Core/HookStore';
 import PostCard from '@Components/PostCard';
 import ErrorBoundary from '@Core/ErrorBoundary';
 import Grid from '@material-ui/core/Grid';
@@ -27,13 +28,11 @@ class Siderail extends Component{
         return _posts;
     }
 
-    componentDidUpdate(prevProps, prevState){
-        let {api} = this.props;
-
-        if(prevProps.api.activePost !== api.activePost){
-            let exclude = api.activePost.id || '';
-            this.props.getPosts(`&exclude=${exclude}&per_page=4`);
-        }
+    componentDidMount(){
+        HookStore.addFilter('the_post', 'Siderail', (post) => {
+            this.props.getPosts(`&exclude=${post.id}&per_page=4`);
+            return post;
+        });
     }
 
     render(){
