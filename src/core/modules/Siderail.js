@@ -32,7 +32,7 @@ class Siderail extends Component{
         HookStore.addFilter('the_post', 'Siderail', (post) => {
             this.props.getPosts(`&exclude=${post.id}&per_page=4`);
             return post;
-        });
+        }, 99999);
     }
 
     render(){
