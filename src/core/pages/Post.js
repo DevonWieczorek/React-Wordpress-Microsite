@@ -53,20 +53,21 @@ class Post extends Component{
         return content;
     }
 
-    setInternalState = (post) => {
-        this.setState({...this.state,
-            id: post.id,
-            title: post.title.rendered,
-            author: post.author_name,
-            date: cleanDate(post.modified),
-            content: this.replaceContent(post.content.rendered)
-        }, () => {this.updateMeta()})
-
-        return post;
+    componentDidUpdate(prevProps, prevState){
+        let {api} = this.props;
+        if(prevProps.api.activePost !== api.activePost){
+            this.setState({...this.state,
+                id: api.activePost.id,
+                title: api.activePost.title.rendered,
+                author: api.activePost.author_name,
+                date: cleanDate(api.activePost.modified),
+                content: api.activePost.content.rendered
+            }, () => {this.updateMeta()})
+        }
     }
 
     componentDidMount(){
-        HookStore.addFilter( 'the_post', 'Post', this.setInternalState, 99999 );
+        HookStore.addFilter( 'the_content', 'Post', this.replaceContent, 1 );
 
         let {location, isPage} = this.props;
         if(isPage){
