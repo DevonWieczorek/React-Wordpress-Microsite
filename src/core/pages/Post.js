@@ -36,7 +36,7 @@ class Post extends Component{
     }
 
     replaceContent = (content) => {
-        // TSW lazyloads images, we don't 
+        // TSW lazyloads images, we don't
         content = content.replace(/data-src/g, 'src');
 
         // Clear any references to TSW
@@ -53,21 +53,20 @@ class Post extends Component{
         return content;
     }
 
-    componentDidUpdate(prevProps, prevState){
-        let {api} = this.props;
-        if(prevProps.api.activePost !== api.activePost){
-            this.setState({...this.state,
-                id: api.activePost.id,
-                title: api.activePost.title.rendered,
-                author: api.activePost.author_name,
-                date: cleanDate(api.activePost.modified),
-                content: api.activePost.content.rendered
-            }, () => {this.updateMeta()})
-        }
+    setInternalState = (post) => {
+        this.setState({...this.state,
+            id: post.id,
+            title: post.title.rendered,
+            author: post.author_name,
+            date: cleanDate(post.modified),
+            content: this.replaceContent(post.content.rendered)
+        }, () => {this.updateMeta()})
+
+        return post;
     }
 
     componentDidMount(){
-        HookStore.addFilter( 'the_content', 'Post', this.replaceContent, 1 );
+        HookStore.addFilter( 'the_post', 'Post', this.setInternalState, 99999 );
 
         let {location, isPage} = this.props;
         if(isPage){
