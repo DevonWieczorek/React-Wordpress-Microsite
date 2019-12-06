@@ -28,10 +28,11 @@ class Siderail extends Component{
     }
 
     componentDidUpdate(prevProps, prevState){
-        let {api, postID} = this.props;
+        let {api} = this.props;
 
-        if(prevProps.api.categories !== api.categories){
-            this.props.getPosts(`&exclude=${postID}&per_page=4`);
+        if(prevProps.api.activePost !== api.activePost){
+            let exclude = api.activePost.id || '';
+            this.props.getPosts(`&exclude=${exclude}&per_page=4`);
         }
     }
 
