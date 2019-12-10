@@ -56,13 +56,18 @@ export const postContentStyles = makeStyles(theme => ({
             }
         },
         '& button.btn-default': {
-            width: '100%',
-            maxWidth: '350px',
+            width: 'auto',
+            maxWidth: '100%',
+            padding: '20px',
             background: n.REACT_APP_DEFAULT_PRIMARY_THEME_COLOR,
-            fontSize: '1.125rem',
-            lineHeight: '4rem',
-            color: theme.palette.primary.light,
-            cursor: 'pointer'
+            fontSize: '1rem',
+            lineHeight: 1.6,
+            color: theme.palette.primary.contrastText,
+            cursor: 'pointer',
+            [theme.breakpoints.up('md')]: {
+                fontSize: '1.125rem',
+                lineHeight: 1.8
+            }
         },
         [theme.breakpoints.up('md')]: {
             padding: '15px'
