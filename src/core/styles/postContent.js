@@ -55,6 +55,15 @@ export const postContentStyles = makeStyles(theme => ({
                 clear: 'both'
             }
         },
+        '& button.btn-default': {
+            width: '100%',
+            maxWidth: '350px',
+            background: n.REACT_APP_DEFAULT_PRIMARY_THEME_COLOR,
+            fontSize: '1.125rem',
+            lineHeight: '4rem',
+            color: theme.palette.primary.light,
+            cursor: 'pointer'
+        },
         [theme.breakpoints.up('md')]: {
             padding: '15px'
         }
