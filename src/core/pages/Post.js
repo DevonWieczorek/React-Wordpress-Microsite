@@ -45,6 +45,7 @@ class Post extends Component{
         // Replace contact-us with mailto: link
         let tswContactRegex = /(http:\/\/|https:\/\/)(thesmartwallet\.com\/contact-us)/gi;
         content = content.replace(tswContactRegex, `mailto:info@${window.location.host}`);
+        content = content.replace('www.', '');
 
         // Update internal links
         let tswAnchorRegex = /(\S*?)href=(["'])(http:\/\/|https:\/\/)(thesmartwallet\.com)\1/gi;
