@@ -30,3 +30,4 @@ yarn-error.log*
 # Ignore plugins for this shell project
 /src/plugins/*
 !/src/plugins/index.js
+!/src/plugins/plugins.json
