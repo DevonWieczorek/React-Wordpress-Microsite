@@ -1,17 +1,19 @@
 import HookStore from '@Core/HookStore';
+import {cacheObject, getCachedObject} from '@Utils/cache';
 import {UPDATE_TAGS, UPDATE_CATEGORIES, FETCH_POSTS, SINGLE_POST, SINGLE_PAGE} from "../actions/types";
 
 const INITIAL_STATE = {
-    tags: [],
-    categories: {},
-    posts: [],
-    activePost: {}
+    tags: getCachedObject('tags') || [],
+    categories: getCachedObject('categories') || {},
+    posts: getCachedObject('posts') || [],
+    activePost: getCachedObject('activePost') || {}
 }
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case UPDATE_TAGS:
             let tags = HookStore.applyFilters('got_tags', action.payload);
+            cacheObject('tags', tags);
             return {...state, tags: tags};
 
         case UPDATE_CATEGORIES:
@@ -22,6 +24,7 @@ export default (state = INITIAL_STATE, action) => {
             }
             let categories = nameKeys(action.payload);
             categories = HookStore.applyFilters('got_categories', categories);
+            cacheObject('categories', categories);
             return {...state, categories: categories};
 
         case FETCH_POSTS:
@@ -37,6 +40,7 @@ export default (state = INITIAL_STATE, action) => {
                 post.content.rendered = HookStore.applyFilters('post_content', post.content.rendered);
                 posts[p] = post;
             }
+            cacheObject('posts', posts);
             return {...state, posts: posts};
 
         case SINGLE_POST:
@@ -52,6 +56,7 @@ export default (state = INITIAL_STATE, action) => {
             // Expose postID for tracking
             window['postID'] = post.id;
 
+            cacheObject('activePost', post);
             return {...state, activePost: post};
 
         case SINGLE_PAGE:
@@ -72,6 +77,7 @@ export default (state = INITIAL_STATE, action) => {
             // Expose pageID for tracking
             window['postID'] = page.id;
 
+            cacheObject('activePost', page);
             return {...state, activePost: page};
 
         default:
