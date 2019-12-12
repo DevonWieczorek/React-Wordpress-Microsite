@@ -38,7 +38,6 @@ class Post extends Component{
     componentDidUpdate(prevProps, prevState){
         let {api} = this.props;
         if(prevProps.api.activePost !== api.activePost){
-            console.log(api.activePost)
             this.setState({...this.state,
                 id: api.activePost.id,
                 title: api.activePost.title.rendered,
