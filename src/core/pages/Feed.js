@@ -18,7 +18,7 @@ class Feed extends Component{
                     <PostCard
                         id={p.id}
                         img={p.featured_image}
-                        date={p.modified}
+                        date={p.date}
                         slug={p.slug}
                         title={p.title.rendered}
                         author={p.metadata.display_aname[0]}
