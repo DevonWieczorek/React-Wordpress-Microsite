@@ -35,26 +35,6 @@ class Post extends Component{
         this.props.updateMeta(meta);
     }
 
-    replaceContent = (content) => {
-        // TSW lazyloads images, we don't
-        content = content.replace(/data-src/g, 'src');
-
-        // Clear any references to TSW
-        content = content.replace(/the smart wallet/gi, process.env.REACT_APP_DEFAULT_SITENAME);
-
-        // Replace contact-us with mailto: link
-        let tswContactRegex = /(http:\/\/|https:\/\/)(thesmartwallet\.com\/contact-us)/gi;
-        // strip out www. and query strings
-        let mailto = `mailto:info@${window.location.host.replace('www.', '').split('?')[0]}`;
-        content = content.replace(tswContactRegex, mailto);
-
-        // Update internal links
-        let tswAnchorRegex = /(\S*?)href=(["'])(http:\/\/|https:\/\/)(thesmartwallet\.com)\1/gi;
-        content = content.replace(tswAnchorRegex, `href="${window.location.host}/posts`);
-
-        return content;
-    }
-
     componentDidUpdate(prevProps, prevState){
         let {api} = this.props;
         if(prevProps.api.activePost !== api.activePost){
@@ -69,8 +49,6 @@ class Post extends Component{
     }
 
     componentDidMount(){
-        HookStore.addFilter( 'the_content', 'Post', this.replaceContent, 1 );
-
         let {location, isPage} = this.props;
         if(isPage){
             this.props.getPageByID(this.props.slug);
