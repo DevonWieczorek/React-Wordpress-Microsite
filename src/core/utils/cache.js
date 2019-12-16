@@ -10,20 +10,17 @@ export const cacheObject = (name, obj) => {
 
 export const cacheObjectByURL = (name, obj) => {
     let url = window.location.href.replace(window.location.search, '');
-    console.log('Set: ');
-    console.log(name, {[url]: obj});
     cacheObject(name, {[url]: obj});
 }
 
 // Parse the JSON object before reading it
 export const getCachedObject = (name) => {
     let obj = JSON.parse(localStorage.getItem(name));
-    return obj;
+    return (obj) ? obj : {};
 }
 
 export const getCachedObjectByURL = (name, obj) => {
     let url = window.location.href.replace(window.location.search, '');
-    console.log('Get: ');
-    console.log(getCachedObject(name)[url]);
-    return getCachedObject(name)[url];
+    let cache = getCachedObject(name);
+    return (cache) ? cache[url] : {};
 }
