@@ -55,7 +55,7 @@ class Post extends Component{
         }
         else{
             let paths = location.pathname.split('/');
-            let slug = paths[paths.length - 1] || '';
+            let slug = paths[paths.length - 1] || paths[paths.length - 2] || ''; // Trailing slashes cause slug to be ''
             this.props.getPostBySlug(slug);
         }
     }
