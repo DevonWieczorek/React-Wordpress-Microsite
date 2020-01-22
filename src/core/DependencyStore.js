@@ -72,7 +72,13 @@ class DependencyStore extends Component {
                 document.getElementById(`${type}-holder`).appendChild(obj.tag);
             }
             else{
-                el = React.createElement(ErrorBoundary, {key: i}, <Helmet>{obj.tag}</Helmet>);
+                let _script = React.createElement('script', {
+                    key: key,
+                    src: (obj.ver) ? `${obj.src}?ver=${obj.ver}` : obj.src
+                }, null);
+
+                el = React.createElement(ErrorBoundary, {key: i}, <Helmet>{_script}</Helmet>);
+
                 _state[`_${type}`].push(el);
             }
 
