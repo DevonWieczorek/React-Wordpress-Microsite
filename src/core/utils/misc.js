@@ -48,10 +48,11 @@ export const decodeHTMLEntity = (str) => {
 }
 
 export const encodeHTMLEntity = (str) => {
-    // eslint-disable-line no-useless-escape
+    /* eslint-disable */
 	return str.replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
        return '&#'+i.charCodeAt(0)+';';
     });
+    /* eslint-enable */
 }
 
 export const stripHTML = (str) => {
