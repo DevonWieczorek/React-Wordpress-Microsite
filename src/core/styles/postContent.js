@@ -105,6 +105,16 @@ export const postContentStyles = makeStyles(theme => ({
                 marginBottom: 0
             }
         },
+        '& figcaption': {
+            position: 'relative',
+            top: '-5px',
+            padding: 0,
+            border: 0,
+            textAlign: 'left',
+            fontSize: '9px',
+            fontStyle: 'normal',
+            boxShadow: 'none'
+        },
         '& img': {
             maxWidth: '100%',
             height: 'auto',
