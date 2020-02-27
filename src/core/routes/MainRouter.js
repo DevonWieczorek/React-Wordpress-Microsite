@@ -28,6 +28,12 @@ class MainRouter extends Component{
             </ErrorBoundary>
         )} />,
 
+        <Route path="/investment-advisory-disclosure" key="investment-advisory-disclosure" component={() => (
+            <ErrorBoundary errorContent={<NotFound />}>
+                <Post isPage={true} slug={process.env.REACT_APP_DEFAULT_DISCLOSURE_ID} />
+            </ErrorBoundary>
+        )} />,
+
         <Route exact path="/404" key="404page" component={NotFound} />,
 
         <Route path="/categories/:category" key="category" component={() => (
