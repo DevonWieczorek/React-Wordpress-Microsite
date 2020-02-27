@@ -18,6 +18,9 @@ This project uses an event-driven model that utilizes the [Wordpress Hooks Packa
 
 ### Filters
 
+#### Routing Filters
+- `main_router`
+
 #### Request Filters
 - `get_tags`
 - `get_categories`

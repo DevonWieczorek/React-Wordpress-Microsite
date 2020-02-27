@@ -1,6 +1,6 @@
 {
-    "name": "make-better-money",
-    "version": "0.3.2",
+    "name": "react-wordpress-microsite",
+    "version": "0.4.0",
     "private": true,
     "dependencies": {
         "@material-ui/core": "^4.5.1",
