@@ -193,6 +193,8 @@ Because we export all of our reducers from `reducers/index.js` we can directly i
 #### `@Routes`
 Our project uses [React Router DOM](https://www.npmjs.com/package/react-router-dom) for routing. We can import our main router from `@Routes/MainRouter`;
 
+Inside of our `MainRouter` we use the `main_router` filter so that routes can be added or removed without the need to modify any `core/` code.
+
 #### `@Styles`
 [Material UI](https://material-ui.com/styles/basics/) pushes you to use CSS-in-JS for styling. The main styles for our component can be imported with `@Styles` as their root.
 
