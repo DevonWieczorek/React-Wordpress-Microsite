@@ -13,14 +13,14 @@ const PostContent = (props) => {
         <ErrorBoundary errorContent={<NotFound />}>
             <Grid item xs={12} lg={9} key={`g-${props.postID}`}>
                 {props.content ?
-                    <Box component="div" className={`card, ${classes.root}`} id={`post-${props.postID}`}>
+                    <Box component="div" className={`card ${classes.root}`} id={`post-${props.postID}`}>
                         {(props.showTooltip) ? <DisclosureTooltip/> : null}
 
-                        <h1 className={`title, ${classes.title}`} dangerouslySetInnerHTML={
+                        <h1 className={`title ${classes.title}`} dangerouslySetInnerHTML={
                             { __html: props.title }
                         }></h1>
 
-                    <div className={`post-info, ${classes.info}`}>
+                    <div className={`post-info ${classes.info}`}>
                             {(props.author) ?
                                 <span className="author">
                                     by <span className="author-name">{props.author}</span>
@@ -28,13 +28,13 @@ const PostContent = (props) => {
                             : null}
 
                             {(props.date) ?
-                                <span className={`post-date, ${classes.date}`}>
+                                <span className={`post-date ${classes.date}`}>
                                     {`Updated on ${props.date}`}
                                 </span>
                             : null}
                         </div>
 
-                        <div className={`post-content, ${classes.content}`} dangerouslySetInnerHTML={
+                        <div className={`post-content ${classes.content}`} dangerouslySetInnerHTML={
                             { __html: props.content }
                         } />
                     </Box>
