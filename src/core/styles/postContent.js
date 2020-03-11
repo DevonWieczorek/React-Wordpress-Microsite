@@ -122,6 +122,24 @@ export const postContentStyles = makeStyles(theme => ({
             '&.size-full': {
                 marginBottom: 0
             }
+        },
+        '& button.cta': {
+            width: 'auto',
+            maxWidth: '100%',
+            padding: '10px',
+            background: n.REACT_APP_DEFAULT_PRIMARY_THEME_COLOR,
+            fontSize: '1rem',
+            lineHeight: 1.6,
+            color: theme.palette.primary.contrastText,
+            cursor: 'pointer'
+        },
+        '& .card_cta a': {
+            background: n.REACT_APP_DEFAULT_PRIMARY_THEME_COLOR,
+            color: theme.palette.primary.contrastText,
+            '&:hover': {
+                background: n.REACT_APP_DEFAULT_PRIMARY_THEME_COLOR,
+                color: theme.palette.primary.contrastText
+            }
         }
     },
     tooltipLink: {
